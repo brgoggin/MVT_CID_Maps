@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+      integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+      crossorigin=""/>
+	<link rel='stylesheet' href='mvt.css' />
+    
+	<! -- script tags for referencing external leaflet functions -->
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+       integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+       crossorigin=""></script>
+    <! -- External source for geojson polygon data-->
+    <script src="mvt_buildings4.js"></script>
+    
+    <!-- JQuery-->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    
+    <!-- Bootstrap Select CSS and JS files-->
+    <link rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"/>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js'></script>
+    
+    
+</head>
+
+<body>
+    <div id="menu">
+    <form action="" id = "sample_form">
+    <h1>Filter by: Property Type</h1>
+    </br> 
+    <select name='prop_type' class="selectpicker" data-live-search="true" id = "placeSelect1">
+      <option value="all">All</option>
+      <option value="office">Office</option>
+      <option value="residential">Residential</option>
+      <option value="retail">Retail</option>
+      <option value="hotel">Hotel</option>
+    </select> 
+    </br> 
+    <h1>Search by Address</h1>
+    </br>
+    <select name='address' class="selectpicker" data-live-search="true" id = "placeSelect2">
+      <option value="655_K_Street">655 K Street</option>
+      <option value="601_Massachusetts_Avenue">601 Massachusetts Avenue</option>
+      <option value="460_New_York_Avenue">460 New York Avenue</option>
+      <option value="425_L_Street">425 L Street</option>
+    </select>
+    </br>
+    <input type="submit" value="Submit">
+    </form>
+    </div>
+    <div id="map"></div>
+	<script src='mvt.js'></script>
+    
+</body>
+</html>
