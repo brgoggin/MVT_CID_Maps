@@ -1,8 +1,7 @@
 //initiate variables
 var layerOptions = null;
 var placeSelect = document.getElementById("placeSelect1").value;
-//var prop_type = document.getElementById("placeSelect1").value;
-//alert(placeSelect.options[placeSelect.selectedIndex].value)
+var profileSelect = document.getElementById("placeSelect2").value;
 
 // Create variable to hold map element, give initial settings to map
 var map = L.map('map', { center: [38.902530, -77.016877], zoom: 16});
@@ -97,23 +96,23 @@ function createFeatures() {
 
 createFeatures();
 
-
-
-//Create Function to remove and re-add layer based on user input
-function myFunction() {
-    //prop_type = document.getElementById("placeSelect1").value;
-    //placeSelect = prop_type;
-    //createFeatures();
-    //alert(placeSelect);
-    //map.removeLayer(geojsonLayer);
-    //geojsonLayer = L.geoJson(mvt_buildings, layerOptions); 
-    //map.addLayer(geojsonLayer);
-    //location.reload();
-}
-
 // create the layer and add to map
 geojsonLayer = L.geoJson(mvt_buildings, layerOptions); 
 map.addLayer(geojsonLayer);
+
+//Create Function to remove and re-add layer based on user input
+function updateMap() {
+    placeSelect = document.getElementById("placeSelect1").value;
+    map.removeLayer(geojsonLayer);
+    geojsonLayer = L.geoJson(mvt_buildings, layerOptions); 
+    map.addLayer(geojsonLayer); 
+}
+
+function showProfile() {
+    profileSelect = document.getElementById("placeSelect2").value;
+    window.open(profileSelect+'.html', '_blank');
+    
+}
 
 
 

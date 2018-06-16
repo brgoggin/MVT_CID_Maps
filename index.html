@@ -23,13 +23,11 @@
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js'></script>
     
-    
 </head>
 
 <body>
     <div id="menu">
-    <form action="" id = "sample_form">
-    <h1>Filter by: Property Type</h1>
+    <h1>Filter Map by Property Type</h1>
     </br> 
     <select name='prop_type' class="selectpicker" data-live-search="true" id = "placeSelect1">
       <option value="all">All</option>
@@ -39,17 +37,23 @@
       <option value="hotel">Hotel</option>
     </select> 
     </br> 
-    <h1>Search by Address</h1>
+    <button onclick="updateMap();">Update Map</button>
+    </br> 
+    </br>
+    <h1>Or</h1>
+    </br>
+    </br> 
+    <h1>Search Properties Directly for More Info</h1>
     </br>
     <select name='address' class="selectpicker" data-live-search="true" id = "placeSelect2">
-      <option value="655_K_Street">655 K Street</option>
+      <option value="655_K_Street"><a href="655_K_Street.html">655 K Street</a></option>
       <option value="601_Massachusetts_Avenue">601 Massachusetts Avenue</option>
       <option value="460_New_York_Avenue">460 New York Avenue</option>
       <option value="425_L_Street">425 L Street</option>
     </select>
     </br>
-    <input type="submit" value="Submit">
-    </form>
+    <button onclick="showProfile();">View Profile</button>
+    </br>
     </div>
     <div id="map"></div>
 	<script src='mvt.js'></script>
