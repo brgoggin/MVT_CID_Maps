@@ -20,8 +20,7 @@ body {
 
 #menu {
     position: absolute;
-    padding: 10px;
-    left: 0;
+    padding: 0;
     width: 40%;
     height: 100%;
 }
@@ -33,6 +32,14 @@ body {
   right: 0;
   width: 60%;
   height: 100%;
+}
+
+#tenant-list {
+    margin-left: 30px;
+}
+
+ul {
+    margin:0;
 }
 
 .popup-label {

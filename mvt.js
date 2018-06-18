@@ -1,7 +1,8 @@
 //initiate variables
 var layerOptions = null;
 var placeSelect = document.getElementById("placeSelect1").value;
-var profileSelect = document.getElementById("placeSelect2").value;
+var statusSelect = document.getElementById("placeSelect2").value;
+var profileSelect = document.getElementById("placeSelect3").value;
 
 // Create variable to hold map element, give initial settings to map
 var map = L.map('map', { center: [38.902530, -77.016877], zoom: 16});
@@ -69,21 +70,66 @@ function createFeatures() {
     }
 
     function filter(feature, layer) {
-    
-        if (placeSelect == "all") {
+        
+        if (statusSelect == "all" && placeSelect=="all") {
             return true
         }
-        else if (placeSelect == "office") {
+        if (statusSelect == "all" && placeSelect=="office") {
             return feature.properties.Office == "Yes"
         }
-        else if (placeSelect == "retail") {
+        if (statusSelect == "all" && placeSelect=="retail") {
             return feature.properties.Retail == "Yes"
         }
-        else if (placeSelect == "residential") {
+        if (statusSelect == "all" && placeSelect=="residential") {
             return feature.properties.Residential == "Yes"
         }
-        else if (placeSelect == "hotel") {
+        if (statusSelect == "all" && placeSelect=="hotel") {
             return feature.properties.Hotel == "Yes"
+        }
+        if (statusSelect == "existing" && placeSelect=="all") {
+            return feature.properties.status == "Existing"
+        }
+        if (statusSelect == "existing" && placeSelect=="office") {
+            return feature.properties.status == "Existing" && feature.properties.Office == "Yes"
+        }
+        if (statusSelect == "existing" && placeSelect=="retail") {
+            return feature.properties.status == "Existing" && feature.properties.Retail == "Yes"
+        }
+        if (statusSelect == "existing" && placeSelect=="residential") {
+            return feature.properties.status == "Existing" && feature.properties.Residential == "Yes"
+        }
+        if (statusSelect == "existing" && placeSelect=="hotel") {
+            return feature.properties.status == "Existing" && feature.properties.Hotel == "Yes"
+        }
+        if (statusSelect == "under_construction" && placeSelect=="all") {
+            return feature.properties.status == "Under Construction" 
+        }
+        if (statusSelect == "under_construction" && placeSelect=="office") {
+            return feature.properties.status == "Under Construction" && feature.properties.Office == "Yes"
+        }
+        if (statusSelect == "under_construction" && placeSelect=="retail") {
+            return feature.properties.status == "Under Construction" && feature.properties.Retail == "Yes"
+        }
+        if (statusSelect == "under_construction" && placeSelect=="residential") {
+            return feature.properties.status == "Under Construction" && feature.properties.Residential == "Yes"
+        }
+        if (statusSelect == "under_construction" && placeSelect=="hotel") {
+            return feature.properties.status == "Under Construction" && feature.properties.Hotel == "Yes"
+        }
+        if (statusSelect == "in_the_pipeline" && placeSelect=="all") {
+            return feature.properties.status == "In the Pipeline" 
+        }
+        if (statusSelect == "in_the_pipeline" && placeSelect=="office") {
+            return feature.properties.status == "In the Pipeline" && feature.properties.Office == "Yes"
+        }
+        if (statusSelect == "in_the_pipeline" && placeSelect=="retail") {
+            return feature.properties.status == "In the Pipeline" && feature.properties.Retail == "Yes"
+        }
+        if (statusSelect == "in_the_pipeline" && placeSelect=="residential") {
+            return feature.properties.status == "In the Pipeline" && feature.properties.Residential == "Yes"
+        }
+        if (statusSelect == "in_the_pipeline" && placeSelect=="hotel") {
+            return feature.properties.status == "In the Pipeline" && feature.properties.Hotel == "Yes"
         }
     }
 
@@ -103,13 +149,14 @@ map.addLayer(geojsonLayer);
 //Create Function to remove and re-add layer based on user input
 function updateMap() {
     placeSelect = document.getElementById("placeSelect1").value;
+    statusSelect = document.getElementById("placeSelect2").value;
     map.removeLayer(geojsonLayer);
     geojsonLayer = L.geoJson(mvt_buildings, layerOptions); 
     map.addLayer(geojsonLayer); 
 }
 
 function showProfile() {
-    profileSelect = document.getElementById("placeSelect2").value;
+    profileSelect = document.getElementById("placeSelect3").value;
     window.open(profileSelect+'.html', '_blank');
     
 }
